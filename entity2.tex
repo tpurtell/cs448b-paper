@@ -1,7 +1,7 @@
 %!TEX root = p.tex
-\section{Entity 2}
+\section{Entity Relation Viewer 2}
 
-The second prototype generally received positive feedback. One of the common themes of the demos was that users liked the ability to drill down in the explorer prototype, but liked the simplicity of the entity prototype. Ultimately it seemed like we needed to add the ability to drill down further in to the newspaper data.
+The entity relation viewer prototype generally received positive feedback. One of the common themes of the demos was that users liked the drill down ability of the explorer prototype, yet liked the simplicity of the entity relation viewer prototype. Ultimately it seemed like we needed to add the ability to drill down further in to the newspaper data.
 
 We decided the best way to do this, while maintaining ease of use, was to link search terms with the related terms a user clicks. That is if the user searched 'Obama' and clicked the 'Chicago' related term, then both related terms and the main plot would update with articles containing 'Obama' and 'Chicago'. We also had a breadcrumb to handle adding these additional filters. However, after a few extra filters, it wasn't uncommon for only a small number of articles to remain. In addition, this broke the free-form linking from term to term idea so we ultimately removed this feature.
 
@@ -19,12 +19,12 @@ Beyond this issue, there were a number of other things we needed to change after
 
 \textbf{The ability to share views of the prototype seemed important to users.} Like the explorer visualization, we added a dynamic URL feature that allows sharing via URL.
 
-The second version of the entity relation viewer, shown in \ref{explorer-1-b}, was discontinued. Though it received decent feedback, it was a difficult prototype to expand in the ways that we wanted to. In particular it was difficult to add query power, and maintain continuity between its two views. In addition, frequency comparisons did not seem as useful as we first suspected. After stopping its development, we focused on the first version of the visualization described above.
+The second version of the entity relation viewer, shown in figure \ref{fig:explorer-1-b}, was discontinued. Though it received generally positive feedback, it was a difficult prototype to expand in the ways that we envisioned. In particular, it was difficult to add query power while maintaining continuity between its two views. In addition, frequency comparisons did not seem as useful as we first suspected. After stopping its development, we focused on the first version of the visualization described above.
 
 \begin{figure}[htb]
   \centerline{
     \includegraphics[scale=0.37]{figures/finalTe.jpg}
   }
-  \caption{Final version of the entity explorer}
+  \caption{Final version of the entity relation viewer}
   \label{fig:explorer-1}
 \end{figure}
