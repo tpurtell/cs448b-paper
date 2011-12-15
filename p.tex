@@ -1,0 +1,85 @@
+\documentclass{chi2012}
+\usepackage{times}
+\usepackage{url}
+\usepackage{graphics}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage[pdftex]{hyperref}
+\usepackage{subfigure}
+
+\hypersetup{%
+pdftitle={Text Visualization of Historical Newspapers}
+pdfauthor={Your Authors},
+pdfkeywords={your keywords},
+bookmarksnumbered,
+pdfstartview={FitH},
+colorlinks,
+citecolor=black,
+filecolor=black,
+linkcolor=black,
+urlcolor=black,
+breaklinks=true,
+}
+\newcommand{\comment}[1]{}
+\usepackage{xspace}
+\definecolor{Orange}{rgb}{1,0.5,0}
+\newcommand{\todo}[1]{\textsf{\textbf{\textcolor{Orange}{[[#1]]}}}}
+
+\pagenumbering{arabic}  % Arabic page numbers for submission.  Remove this line to eliminate page numbers for the camera ready copy
+
+\usepackage{verbatim}
+\def\ActivScript{activity script\xspace}
+\def\meetgreet{weMeet\xspace}
+\def\sendreceive{Hello World\xspace}
+\def\ourtube{weTube\xspace}
+\def\localmusic{weTunes\xspace}
+\def\remotemusic{Music Cloud\xspace}
+\def\chat{weChat\xspace}
+\def\Poker{weHold'Em\xspace}
+\def\Snap2Bluff{weBluff\xspace}
+
+\begin{document}
+% to make various LaTeX processors do the right thing with page size
+\special{papersize=8.5in,11in}
+\setlength{\paperheight}{11in}
+\setlength{\paperwidth}{8.5in}
+\setlength{\pdfpageheight}{\paperheight}
+\setlength{\pdfpagewidth}{\paperwidth}
+
+%\addtolength{\oddsidemargin}{-.03in}
+%\addtolength{\evensidemargin}{-.03in}
+%\addtolength{\textwidth}{.06in}
+
+% use this command to override the default ACM copyright statement 
+% (e.g. for preprints). Remove for camera ready copy.
+\toappear{Preliminary Draft -- Do Not Distribute}
+\def\ActivScript{activity script\xspace}
+
+\title{Text Visualization of Historical Newspapers}
+
+\numberofauthors{1}
+\author{
+    \alignauthor{David Chanin \quad Ian Christopher \quad Mircea Bobby Georgescu \quad T.J. Purtell}\\
+    \affaddr{Computer Science Department}\\
+    \affaddr{Stanford University}\\
+    \email{\{chanind,ifc,bgeorges,tpurtell\}@.stanford.edu}
+}
+
+\maketitle
+%\sloppy
+\input{abstract}
+\input{intro}
+\input{related}
+\input{data}
+\input{engine}
+\input{explorer1}
+\input{entity1}
+\input{final}
+\input{explorer2}
+\input{entity2}
+\input{future}
+
+\bibliographystyle{abbrv} % 1p
+\bibliography{p}
+
+\end{document}
