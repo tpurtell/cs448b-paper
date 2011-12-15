@@ -1,18 +1,16 @@
 %!TEX root = p.tex
 \section{Related Work}
 
-\cite{grobelnik2004visualization}
-\cite{wermter2002selforganizing}
-\cite{johnson2004network}
-\cite{hearst1995tilebars}
-\cite{mehler2006spatial}
+
+
 \cite{paulovich2006text}
 
+The news corpus that we are working with is one of the most expansive that has been explored visually.  Automatic classification of entities \cite{wermter2002selforganizing} as well as interaction network analysis \cite{johnson2004network} have been performed on the publically available Reuters news data set.  This data set covers only a single year so it can not be used to answer the same types of questions our decade of data can answer.  Even more interesting questions might be approachable using visualization techniques using long-term historcal data sets that reach back to the beginning of the century.  The occurrence of terms in relation to local geography has also been studied on large scale news data sets \cite{mehler2006spatial}.
 
+Creative visualization techniques have been applied to full-text visualization including TileBars which suggessts a small visual cue that indicates the location of term hits within a document \cite{hearst1995tilebars}.  Tools like Text Map Explorer have been used to transform a text corpus into map of interesting features from the data \cite{paulovich2006text}.  The most complex and fascinating examples of-text visualization are PhraseNets, which map patterned full-text matching expressions into visual elements \cite{phrasenets}.
 
 Sentiment analysis is an engaging capability to offer to users of a visualization.  Previous sucessful work has focused entirely on display sentiment analysis \cite{wanner2009visual}.  We included online sentiment analysis as a capability of system because it mapped directly onto features of our query engine.  Rather than focus on crafting sentiment word lists for the news analysis task, we used the General Inquirer database as a source of about a hundred sentiments \cite{generalinquirer}.
 
+Researcher have focused on using named entities extracted from full-text data in order provide a visualization interface that encourages rapid exploration of topics \cite{grobelnik2004visualization}.  A tool that is capable of helping users understand the role of people and organizations in the news would be valuable to journalist.  However, there are significant limitations of current techniques for automatic entity extraction.  Not all extracted entities can be resolved against one another, thus even a single concept with an article may show up under separate names.  We chose to use the Stanford CoreNLP tools to facilitate faceted exploration by named entity and part of speech \cite{finkel2005incorporating,toutanova2003feature}.  We address the lack of perfect resolution of terms by allowing a visual metaphor for selecting related terms.
+
 One of our original goals was to use the WordNet database as a means to provide guidance in term selection.  Visualization of the taxonomy of Enlgish words usually takes the form of a node link diagram \cite{collins2006wordnet,wordvis}.  Docuburst takes a different approach, allowing for a visual fingerprint of document to be derived from the full text combined with WordNet \cite{fellbaum2010wordnet}.  Unfortunately, these presentations would consume too much space to be of practical use in our visualizations.  Intelligent auto-complete against related words would be more suitable for our purposes.  There are a wide variety of other techniques that could also feed smart term suggestions such as using data extracted from Wikipedia or Yahoo Terms \cite{dakka2008automatic}.
-
-
-Should probably mention google insights/google trends
