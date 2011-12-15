@@ -9,6 +9,14 @@ Interactive query building implies a system which is capable providing feedback 
 - What are all the documents that contain a combination of terms, possibly filtered by other features, such as date, page, or publication?
 - Given that the user has typed ‘abc’, what other terms might they want to include?
 
+\begin{figure}[htb]
+  \centerline{
+    \includegraphics[scale=0.28]{figures/pipeline.png}
+  }
+  \caption{The overall data processing pipeline. The document, entity, and lemma lists are all computed off-line.}
+  \label{fig:pipeline}
+\end{figure}
+
 Servicing these queries in real-time requires pre-computation of several indexes to provide a responsive user experience.  The process of extracting entities and lemmas from the full-text documents alone requires 18 hours of processing time when performed on a Core i7 i920 processor (2.9GHz. 4-core, 8 threads).  Unfortunately handling of advanced queries against the data restricts the type of offline processing that can be used.  A user might create a query which selects an arbitrary set of documents and request the most important named entities contained within those documents.  Thus, the data need to be stored in a format that supports efficient aggregation.   
 
 Our processing pipeline consists of several phases.  First, the metadata and full-text fields are extracted from the original ProQuest XML dump using XPath expression.  These fields are stored in a SQL database.  Next, the Stanford CoreNLP tools are run over the corpus to extract word stems, parts of speech, named entity terms, and named entity classes.  A unique id is allocated for word form and entity and the full this mapping is recorded in another pair of SQL tables.  Simultaneously, packed and sorted lists of hit counts are produced for the input documents, e.g. word\#1 - 10 hits - word \#5 - 20 hits - word\#1000 - 1 hit.   One row per document containing the list is stored in the SQL database.  Later, these lists will be rapidly aggregated by the query engine to compute the most important terms over a document collection.
