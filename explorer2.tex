@@ -2,16 +2,49 @@
 \section{Explorer 2}
 User testing revealed several shortcomings in first version of the “Explorer” interface. In the second iteration, we sought to address all of these. In this section, we discuss each major piece of feedback and the changes we made in response.
 
+\begin{figure}[htb]
+  \centerline{
+    \includegraphics[scale=0.28]{figures/explorer-ui.png}
+  }
+  \caption{TODO: FILL ME IN}
+  \label{fig:explorer-ui}
+\end{figure}
+
 The interactions required for creating series were very cumbersome and limiting series to disjunctions was too limiting for expressiveness. In order to make series more expressive, we now allow arbitrary conjunctive normal form expressions to be used for series. Additionally, we introduced a type system for terms, with support for Publication, Entity, Lemma, Page, and Sentiment types. This allows for the specification of complex queries like “first page articles mentioning New York in the Baltimore Sun or Los Angeles Times” (see figure).
 To make constructing and modifying expressions more intuitive, we implemented a drag and drop, touch-friendly interface. Terms and disjunctive clauses can be dragged within and between series. Series can be created by clicking the New Series button or by dropping a term or clause onto it. In the latter case, the new series will be pre-populated with the dropped clause or with a new clause containing the dropped term. Similarly, dropping a term on an existing series but outside an existing clause will create a new clause containing that term. Finally, terms, clauses, and entire series can be dragged and dropped onto the Trash box, which will result in their deletion. 
 
+\begin{figure}[htb]
+  \centerline{
+    \includegraphics[scale=0.28]{figures/builder-series.png}
+  }
+  \caption{TODO: FILL ME IN}
+  \label{fig:builder-series}
+\end{figure}
+
+
 Terms originate in the “smart palette” sidebar on the left of the screen. The user types a term in the input box, and has the option to use a lemma/entity term containing the exact text they typed or to choose from a number of auto-complete suggestions that appear below. When possible, the suggested terms are annotated with icons representing the data class (we currently support people, places, and organizations). Terms for the three publications are also available in the palette, and page number terms become available when the user types a number.
+
+\begin{figure}[htb]
+  \centerline{
+    \includegraphics[scale=0.28]{figures/smart-palette.png}
+  }
+  \caption{TODO: FILL ME IN}
+  \label{fig:smart-palette}
+\end{figure}
 
 
 Users were confused about what exactly the filter functionality did. In light of this feedback as well as the increased expressiveness of the series functionality, we decided to remove the global filter in this iteration.
 
 Testers wanted the ability to figure out why spikes occurred in series. In user testing, we found that even in its first iteration, the Explorer tool was fairly effective for finding interesting features in time series. However, our testers expressed frustration when we explained that there was no way to figure out why these features occurred. Part of this had to do with our usage license for the data, which prohibits us from exposing the full-text of the articles. To work around this issue we added the “headline inspector” view, a floating dismissible window that shows up to 20 headlines from the most recently clicked point on the graph. Empirically, we found that scanning the headlines was usually sufficient for testers to identify the cause of a spike.
 
+
+\begin{figure}[htb]
+  \centerline{
+    \includegraphics[scale=0.28]{figures/details.png}
+  }
+  \caption{TODO: FILL ME IN}
+  \label{fig:details}
+\end{figure}
 
 
 
