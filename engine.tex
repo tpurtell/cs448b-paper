@@ -1,20 +1,20 @@
 %!TEX root = p.tex
 \section{Query Engine}
-Our query engine allows for arbitrary boolean query expressions to select a set of documents.  Documents can be matched based on metadata such as date, publication, or section title. They also can be matched based on whether the document contains a word form or named entity.  Each terminal item matches a subset of the entire corpus and returns a packed hit count for how many times that term matches the document.  Each internal item aggregates or filters its arguments.  Terms can also transform the type of the result sets from a list of document hit to a list of words or entities contained in those documents.
+Our query engine allows for arbitrary boolean query expressions to select a set of documents.  Documents can be matched based on metadata such as date, publication, or section title. They also can be matched based on whether the document contains a word form or named entity.  Each terminal item matches a subset of the entire corpus and returns a packed hit count for how many times that term matches the document.  Each internal item aggregates or filters its arguments.  Terms can also transform the type of the result sets from a list of document hit to a list of words or entities contained in those documents.  An example query in parsed form can be seen in figure \ref{fig:entity-query}.
 
 \begin{figure}[htb]
   \centerline{
-    \includegraphics[scale=0.28]{figures/entity-query.png}
+    \includegraphics[width=40mm]{figures/entity-query.png}
   }
-  \caption{A example query that returns the top 20 entities referenced in articles that mention the election of George Bush.}
+  \caption{An example query that returns the top 20 entities referenced in articles that mention the election of George Bush.}
   \label{fig:entity-query}
 \end{figure}
 
-Queries that return quantitative results, such as document hit counts, request a complete data matrix in a single request.  This minimizes overhead due to network latency and the limited number of simultaneous connections provided by a web-browser.  The queries have three main parameters: a global filter expression, an array of expressions to aggregate separately, and an array of buckets that filter documents into horizontal axis segments.
+Queries that return quantitative results, such as document hit counts, request a complete data matrix in a single request.  This minimizes overhead due to network latency and the limited number of simultaneous connections provided by a web-browser.  As shown in figure \ref{fig:json-query}, the queries have three main parameters: a global filter expression, an array of expressions to aggregate separately, and an array of buckets that filter documents into horizontal axis segments.
 
 \begin{figure}[htb]
   \centerline{
-    \includegraphics[scale=0.28]{figures/json-query.png}
+    \includegraphics[width=40mm]{figures/json-query.png}
   }
   \caption{An example query expression in 'JSON' using some syntactic sugar functions.}
   \label{fig:json-query}
@@ -22,11 +22,11 @@ Queries that return quantitative results, such as document hit counts, request a
 
 The query engine is built in Java using the Jersey RESTful web service framework.  Combining this framework with the Jackson JSON Processor allows for the automatic mapping of HTTP requests with a JSON payload into Java method calls that take Java objects as arguments.  This makes it very easy to build structured query expressions in Javascript and have them processed by the query service.
 
-The query process runs in several phases.  First all the input expressions are scanned and validated.  Once the query expression is validated, the series expressions that were submitted are crossed with the requested aggregation buckets to produce a family of query expressions.  Each one is submitted to the evaluator, which checks to see if it has recently processed any similar sub-expressions. If possible it reuses old results as it aggregates the results recursively.  Once the evaluator finishes, the specific logic for the query type applies any additional data transformations required by the front end, e.g. loading the article metadata for matching documents.
+The query process runs in several phases, figures \ref{fig:query}, \ref{fig:pull}.  First all the input expressions are scanned and validated.  Once the query expression is validated, the series expressions that were submitted are crossed with the requested aggregation buckets to produce a family of query expressions.  Each one is submitted to the evaluator, which checks to see if it has recently processed any similar sub-expressions. If possible it reuses old results as it aggregates the results recursively.  Once the evaluator finishes, the specific logic for the query type applies any additional data transformations required by the front end, e.g. loading the article metadata for matching documents.
 
 \begin{figure}[htb]
   \centerline{
-    \includegraphics[scale=0.28]{figures/query.png}
+    \includegraphics[width=60mm]{figures/query.png}
   }
   \caption{The four main query types are handled by the same query evaluator.}
   \label{fig:query}
@@ -34,7 +34,7 @@ The query process runs in several phases.  First all the input expressions are s
 
 \begin{figure}[htb]
   \centerline{
-    \includegraphics[scale=0.28]{figures/pull.png}
+    \includegraphics[width=60mm]{figures/pull.png}
   }
   \caption{The query evaluator pulls information from the SQL databasse into in memory caches and temporarily caches intermediate results to maximize interactivity.}
   \label{fig:pull}
