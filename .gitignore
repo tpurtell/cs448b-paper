@@ -1,5 +1,6 @@
 p.aux
 p.log
 p.out
-p.pdf
 p.synctex.gz
+p.bbl
+p.blg
